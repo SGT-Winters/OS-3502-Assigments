@@ -5,16 +5,16 @@
 #include <getopt.h>
 #include <time.h>
 
-int main(int argc, char *argv[]{
+int main(int argc, char *argv[]){
 
 	int max_line = -1;
 	int verbose = 0;
 	int opt;
 
 	while((opt = getopt(argc, argv, "n:v")) != -1) {
-		if(opt == 'n){
+		if(opt == 'n'){
 			max_line = atoi(optarg);
-		} else if{opt == 'v'){
+		} else if(opt == 'v'){
 			verbose = 1;
 		}
 	}//end of while loop
@@ -25,20 +25,20 @@ int main(int argc, char *argv[]{
 	int line_count;
 	int char_count;
 
-	while ((n = getline(&line, &line, stdin)) != -1){
-		line count++;
+	while ((n = getline(&line, &len, stdin)) != -1){
+		line_count++;
 		char_count += n;
 
 		if(verbose){
 			fputs(line, stdout);
 		}
 
-		if(max_line != -1 && line_count >= max_lines){
+		if(max_line != -1 && line_count >= max_line){
 			break;
 		}
 	}//end of while loop
 
-	free(line)
+	free(line);
 
 	fprintf(stderr, "Lines: %d\n", line_count);
 	fprintf(stderr, "Characters: %d\n", char_count);

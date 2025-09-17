@@ -8,7 +8,7 @@ int main(int argc, char *argv[]){
 
 	FILE *input =stdin;
 	int buffer_size =4096;
-	char *filename = null;
+	char *filename = NULL;
 	int opt;
 
 	while((opt = getopt(argc, argv, ":f:b:")) != -1){
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]){
 		fwrite(buffer, 1, n, stdout);
 	}// end of while look
 
-	free(buffer)
+	free(buffer);
 	if(filename) fclose(input);
 
 return 0;
