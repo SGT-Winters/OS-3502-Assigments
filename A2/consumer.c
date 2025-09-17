@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
@@ -9,7 +9,7 @@ int main(int argc, char *argv[]{
 
 	int max_line = -1;
 	int verbose = 0;
-//testing if this got added
+	int opt;
 
 return 0;
 }
