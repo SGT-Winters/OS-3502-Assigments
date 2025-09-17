@@ -7,5 +7,4 @@
 ## Assignment 2
 
 ### Helpful Videos
-<br>
 Parse Command Line Arguments: https://www.youtube.com/watch?v=ZA3QfmabUKg
