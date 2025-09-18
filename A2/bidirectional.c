@@ -10,7 +10,16 @@ int main(){
 	int pipe2[2];
 	pid_t pid;
 
-	a
+	if(pipe(pipe1) == -1 || pipe(pipe2) == -1){
+		perror("pipe");
+		exit(1);
+	}
+
+	pid = fork();
+	if(pid < 0){
+		perror("fork");
+		exit(1);
+	}
 
 	if(pid == 0){
 
