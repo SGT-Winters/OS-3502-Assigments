@@ -19,7 +19,7 @@ void handle_sigusr1(int sig){
 int main(int argc, char *argv[]){
 
     FILE *input = stdin;
-    int buffer_size = 1024;
+    int buffer_size = 4096;
     char *filename = NULL;
     int opt;
 
