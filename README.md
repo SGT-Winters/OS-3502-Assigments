@@ -23,5 +23,5 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 ### Helpful Videos
 
-Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br><br>
-Race Conditions: https://www.youtube.com/watch?v=K1aoimUYTK8<br><br>
+Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
+Race Conditions: https://www.youtube.com/watch?v=K1aoimUYTK8<br>
