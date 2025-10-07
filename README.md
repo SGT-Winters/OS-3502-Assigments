@@ -29,3 +29,6 @@ Race Conditions: https://www.youtube.com/watch?v=K1aoimUYTK8<br>
 Mutex: https://www.youtube.com/watch?v=raLCgPK-Igc<br>
 #### Phase 3
 Deadlocks: https://www.youtube.com/watch?v=LjWug2tvSBU<br>
+
+#### LaTeX Tutorial
+https://www.youtube.com/watch?v=y8y_KIs9JLs <br>
