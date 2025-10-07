@@ -27,3 +27,5 @@ Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
 Race Conditions: https://www.youtube.com/watch?v=K1aoimUYTK8<br>
 #### Phase 2
 Mutex: https://www.youtube.com/watch?v=raLCgPK-Igc<br>
+#### Phase 3
+Deadlocks: https://www.youtube.com/watch?v=LjWug2tvSBU<br>
