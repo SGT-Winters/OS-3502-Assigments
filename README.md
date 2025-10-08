@@ -21,6 +21,14 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 ## Project 1
 
+## Phase 1
+Creates a basic multi-threading banking that allows for accessing shared data between acccounts without any protection<br><br>
+**Requirements**<br>
+* Create multiple threads
+* Each thrad should perform multiple operations
+* Display thread IDs and operations details
+* Show the race conditions problem
+<br>
 ### Helpful Videos
 #### Phase 1
 Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
