@@ -36,6 +36,14 @@ time to do a tranaction. Every deposit increases the account by $100 while every
 experience processing time. Every thread access and edit the same account at thee same time without any synchronization. Because there are no locks or safe nets in place,
 the end balance will alawys be different each time the program is run.
 
+### Phase 2
+Add on to Phase 1 but includes mutex locks to protect shared resources and eliminate race conditions, ensuring only 1 thread accesses resource at a time<br><br>
+**Requirements**
+* Implement pthread mutexes for each account
+* Ensure thread-safe access to all shared data
+* Verify correct final balances
+* Measure performance impact of synchronization
+
 ### Helpful Videos
 #### Phase 1
 Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
