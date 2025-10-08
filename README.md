@@ -67,7 +67,7 @@ than a certain time frame, it detects and reports that a deadlock has occurred. 
 ### Phase 4
 Add on to Phase 3 but fixes the problem of deadlocks<br><br>
 **Requirements**
-* Use pthread_mutex_timedlock
+* Use Lock Ordering: Always acquire locks in consistent order
 
 ### Helpful Videos
 #### Phase 1
