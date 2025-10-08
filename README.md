@@ -49,6 +49,16 @@ Simulated a multi-threaded banking system that addes the proper synchronization 
 from modifying the account at the same time. This ensures that the balance remains consistent and prevents any race conditions. The program also
 records the start time and end time between transactions and gives the total time taken for all transactions.
 
+### Phase 3
+Add on to Phase 2 but implements account transfers that can cause deadlock.<br><br>
+**Requirements**
+* Implement transfer operations requiring two account locks
+* Create a scenario where deadlock is highly likely to occur
+* Detect and report when threads appear stuck (no progress)
+* Use multiple threads performing transfers between same accounts
+
+#### Approach
+
 ### Helpful Videos
 #### Phase 1
 Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
