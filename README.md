@@ -68,6 +68,7 @@ than a certain time frame, it detects and reports that a deadlock has occurred. 
 Add on to Phase 3 but fixes the problem of deadlocks<br><br>
 **Requirements**
 * Use Lock Ordering: Always acquire locks in consistent order
+* Timeout Mechanism: Use pthread_mutex_timedlock
 
 #### Approach
 I created a lock ordering rule, which makes sures that all threads acquire locks at the same sequence. It checks to see which account has the smaller ID 
