@@ -65,7 +65,7 @@ progress. It uses atomic variables to keep track of the last time progress was d
 than a certain time frame, it detects and reports that a deadlock has occurred. It the prints information about the locks and the time it waited.
 
 ### Phase 4
-Add on to Phase 3 but fixes the problem of deadlocks
+Add on to Phase 3 but fixes the problem of deadlocks<br><br>
 **Requirements**
 * Use pthread_mutex_timedlock
 
