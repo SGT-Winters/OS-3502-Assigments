@@ -71,7 +71,7 @@ void *detect_report(void *arg) {
         if (difftime(now, last) > STUCK) {
             printf("\nDeadlock Hit! No progress for %ld seconds.\n", 
                    (long)difftime(now, last));
-            printf("Threads appear to be waiting for each other.\n");
+            printf("Threads are waiting for each other.\n");
             fflush(stdout);
             pthread_exit(NULL);
         }
