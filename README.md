@@ -58,6 +58,16 @@ Add on to Phase 2 but implements account transfers that can cause deadlock.<br><
 * Use multiple threads performing transfers between same accounts
 
 #### Approach
+Phase 3 uses mutex locks to protect shared resources and introduces a way to detect deadlocks during runtime. Each thread trys to move money from one
+account to another while at the same time acquiring locks on both accounts. I added a delay and a lock ordering that makes it so that each threads waits 
+for each other, showcasing a potential deadlock scenario. I then created monitoring system, detect_report, that runs consistantly to check the system's
+progress. It uses atomic variables to keep track of the last time progress was done by any thread. If it detects that no progress has happened for more
+than a certain time frame, it detects and reports that a deadlock has occurred. It the prints information about the locks and the time it waited.
+
+### Phase 4
+Add on to Phase 3 but fixes the problem of deadlocks
+**Requirements**
+* Use pthread_mutex_timedlock
 
 ### Helpful Videos
 #### Phase 1
