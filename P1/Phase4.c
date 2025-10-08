@@ -37,7 +37,6 @@ void *transfer(void *arg) {
     int from_id = ((int *)arg)[0];
     int to_id   = ((int *)arg)[1];
 
-    // Ordered locking: smaller account ID first to prevent circular wait
     int first = (from_id < to_id) ? from_id : to_id;
     int second = (from_id < to_id) ? to_id : from_id;
 
@@ -45,7 +44,6 @@ void *transfer(void *arg) {
            thread_id, accounts[from_id].account_id, accounts[to_id].account_id);
     fflush(stdout);
 
-    // Try to acquire first lock
     if (timed_lock(&accounts[first].lock, 2) != 0) {
         printf("Thread %d: Failed to lock first account %d, retrying later...\n",
                thread_id, accounts[first].account_id);
@@ -60,7 +58,6 @@ void *transfer(void *arg) {
 
     usleep(500000); // simulate delay
 
-    // Try to acquire second lock
     int second_lock = timed_lock(&accounts[second].lock, 2);
     if (second_lock != 0) {
         printf("Thread %d: Timeout waiting for account %d, aborting transfer.\n",
