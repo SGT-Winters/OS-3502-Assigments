@@ -44,6 +44,11 @@ Add on to Phase 1 but includes mutex locks to protect shared resources and elimi
 * Verify correct final balances
 * Measure performance impact of synchronization
 
+#### Approach
+Simulated a multi-threaded banking system that addes the proper synchronization using mutex locks. Phase 2 implements the locks to prevent mutiple threads
+from modifying the account at the same time. This ensures that the balance remains consistent and prevents any race conditions. The program also
+records the start time and end time between transactions and gives the total time taken for all transactions.
+
 ### Helpful Videos
 #### Phase 1
 Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
