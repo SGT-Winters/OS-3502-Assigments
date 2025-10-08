@@ -23,12 +23,19 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 ### Phase 1
 Creates a basic multi-threading banking that allows for accessing shared data between acccounts without any protection<br><br>
-**Requirements**<br>
+**Requirements**
 * Create multiple threads
 * Each thrad should perform multiple operations
 * Display thread IDs and operations details
 * Show the race conditions problem
 <br>
+
+#### Approach
+Simulated a simple multi-threading banking system. It uses 3 threads set as the tellers, and each teller does 5 transactions on 1 singular back account shared among them.
+The shared account has an account ID, balance, and transaction count. The program randomly decides whether each teller is to deposit or withdraw money when it is their 
+time to do a tranaction. Every deposit increases the account by $100 while every withdraw decreases the account by $50. A delay is added to help set up a real-world
+experience processing time. Every thread access and edit the same account at thee same time without any synchronization. Because there are no locks or safe nets in place,
+the end balance will alawys be different each time the program is run.
 
 ### Helpful Videos
 #### Phase 1
