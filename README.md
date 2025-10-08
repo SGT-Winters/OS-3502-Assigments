@@ -29,7 +29,6 @@ Creates a basic multi-threading banking that allows for accessing shared data be
 * Display thread IDs and operations details
 * Show the race conditions problem
 <br>
-
 #### Approach
 Simulated a simple multi-threading banking system. It uses 3 threads set as the tellers, and each teller does 5 transactions on 1 singular back account shared among them.
 The shared account has an account ID, balance, and transaction count. The program randomly decides whether each teller is to deposit or withdraw money when it is their 
