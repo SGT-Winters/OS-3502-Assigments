@@ -83,7 +83,7 @@ Race Conditions: https://www.youtube.com/watch?v=K1aoimUYTK8<br>
 #### Phase 2
 Mutex: https://www.youtube.com/watch?v=raLCgPK-Igc<br>
 #### Phase 3 and 4
-Deadlocks:<br><br>Video: https://www.youtube.com/watch?v=LjWug2tvSBU<br>
+Deadlocks:<br>Video: https://www.youtube.com/watch?v=LjWug2tvSBU<br>
 Deadlock Reading: https://undo.io/resources/detecting-deadlocks-c-cplusplus/<br>
 
 #### LaTeX Tutorial
