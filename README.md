@@ -29,6 +29,7 @@ Creates a basic multi-threading banking that allows for accessing shared data be
 * Display thread IDs and operations details
 * Show the race conditions problem
 <br>
+
 ### Helpful Videos
 #### Phase 1
 Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
