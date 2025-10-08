@@ -69,13 +69,19 @@ Add on to Phase 3 but fixes the problem of deadlocks<br><br>
 **Requirements**
 * Use Lock Ordering: Always acquire locks in consistent order
 
+#### Approach
+I created a lock ordering rule, which makes sures that all threads acquire locks at the same sequence. It checks to see which account has the smaller ID 
+and always locks that before trying to lock the second one. By doing this, the program removes the chances of a stall or circular wait, which is a key
+condition for deadlocks. I then used the function pthread_mutex_timedlock(). This allows a thread to wait only for a certain amount of time when trying
+to get a lock. If it cannot get a lock then the thread times out, releases any locks it previously had, and then retries later.
+
 ### Helpful Videos
 #### Phase 1
 Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
 Race Conditions: https://www.youtube.com/watch?v=K1aoimUYTK8<br>
 #### Phase 2
 Mutex: https://www.youtube.com/watch?v=raLCgPK-Igc<br>
-#### Phase 3
+#### Phase 3 and 4
 Deadlocks:<br><br>Video: https://www.youtube.com/watch?v=LjWug2tvSBU<br>
 Deadlock Reading: https://undo.io/resources/detecting-deadlocks-c-cplusplus/<br>
 
