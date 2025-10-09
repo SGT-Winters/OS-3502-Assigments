@@ -32,9 +32,9 @@ Creates a basic multi-threading banking that allows for accessing shared data be
 #### Approach
 Simulated a simple multi-threading banking system. It uses 3 threads set as the tellers, and each teller does 5 transactions on 1 singular back account shared among them.
 The shared account has an account ID, balance, and transaction count. The program randomly decides whether each teller is to deposit or withdraw money when it is their 
-time to do a tranaction. Every deposit increases the account by $100 while every withdraw decreases the account by $50. A delay is added to help set up a real-world
-experience processing time. Every thread access and edit the same account at thee same time without any synchronization. Because there are no locks or safe nets in place,
-the end balance will alawys be different each time the program is run.
+time to do a transaction. Every deposit increases the account by $100 while every withdraw decreases the account by $50. A delay is added to help set up a real-world
+experience processing time. Every thread accesses and edit the same account at thee same time without any synchronization. Because there are no locks or safe nets in place,
+the end balance will be different each time the program is run.
 
 ### Phase 2
 Add on to Phase 1 but includes mutex locks to protect shared resources and eliminate race conditions, ensuring only 1 thread accesses resource at a time<br><br>
@@ -45,7 +45,7 @@ Add on to Phase 1 but includes mutex locks to protect shared resources and elimi
 * Measure performance impact of synchronization
 
 #### Approach
-Simulated a multi-threaded banking system that addes the proper synchronization using mutex locks. Phase 2 implements the locks to prevent mutiple threads
+Simulated a multi-threaded banking system that addesses the proper synchronization using mutex locks. Phase 2 implements the locks to prevent multiple threads
 from modifying the account at the same time. This ensures that the balance remains consistent and prevents any race conditions. The program also
 records the start time and end time between transactions and gives the total time taken for all transactions.
 
@@ -58,11 +58,11 @@ Add on to Phase 2 but implements account transfers that can cause deadlock.<br><
 * Use multiple threads performing transfers between same accounts
 
 #### Approach
-Phase 3 uses mutex locks to protect shared resources and introduces a way to detect deadlocks during runtime. Each thread trys to move money from one
-account to another while at the same time acquiring locks on both accounts. I added a delay and a lock ordering that makes it so that each threads waits 
-for each other, showcasing a potential deadlock scenario. I then created monitoring system, detect_report, that runs consistantly to check the system's
-progress. It uses atomic variables to keep track of the last time progress was done by any thread. If it detects that no progress has happened for more
-than a certain time frame, it detects and reports that a deadlock has occurred. It the prints information about the locks and the time it waited.
+Phase 3 uses mutex locks to protect shared resources and introduces a way to detect deadlocks during runtime. Each thread tries to move money from one
+account to another while at the same time acquiring locks on both accounts. I added a delay and a lock ordering that makes it so that each thread waits 
+for each other, showcasing a potential deadlock scenario. I then created monitoring system, detect_report, that runs consistently to check the system's
+progress. It uses atomic variables to keep track of the last time progress was done by any thread. If it detects that no progress has occurred for more
+than a certain time frame, it detects and reports that a deadlock has occurred. It then prints information about the locks and the time it waited.
 
 ### Phase 4
 Add on to Phase 3 but fixes the problem of deadlocks<br><br>
@@ -71,7 +71,7 @@ Add on to Phase 3 but fixes the problem of deadlocks<br><br>
 * Timeout Mechanism: Use pthread_mutex_timedlock
 
 #### Approach
-I created a lock ordering rule, which makes sures that all threads acquire locks at the same sequence. It checks to see which account has the smaller ID 
+I created a lock ordering rule, which makes sure that all threads acquire locks at the same sequence. It checks to see which account has the smaller ID 
 and always locks that before trying to lock the second one. By doing this, the program removes the chances of a stall or circular wait, which is a key
 condition for deadlocks. I then used the function pthread_mutex_timedlock(). This allows a thread to wait only for a certain amount of time when trying
 to get a lock. If it cannot get a lock then the thread times out, releases any locks it previously had, and then retries later.
