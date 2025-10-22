@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SPa9utAjNGM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rafay\\OneDrive\\Documents\\OS-3502-Assigments\\P2\\CpuScheduler\\CpuScheduler.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rafay\\.nuget\\packages\\microsoft.visualbasic\\10.3.0\\microsoft.visualbasic.10.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
