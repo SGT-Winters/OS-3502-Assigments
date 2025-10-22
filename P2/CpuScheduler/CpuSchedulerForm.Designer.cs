@@ -76,7 +76,7 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -221,8 +221,8 @@
             // 
             // contentPanel
             // 
-            this.contentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.contentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.contentPanel.Controls.Add(this.welcomePanel);
             this.contentPanel.Controls.Add(this.schedulerPanel);
@@ -247,8 +247,8 @@
             // 
             // welcomeTextBox
             // 
-            this.welcomeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.welcomeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.welcomeTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.welcomeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -274,8 +274,8 @@
             // 
             // listView1
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.BackColor = System.Drawing.SystemColors.Window;
             this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -314,8 +314,8 @@
             // 
             // processDataGrid
             // 
-            this.processDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.processDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.processDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.processDataGrid.Location = new System.Drawing.Point(20, 95);
@@ -406,6 +406,21 @@
             this.btnLoadData.UseVisualStyleBackColor = true;
             this.btnLoadData.Visible = true;
             this.btnLoadData.Click += new System.EventHandler(this.LoadData_Click);
+            //
+            // btnExportData
+            //
+            this.btnExportResults = new System.Windows.Forms.Button();
+            this.btnExportResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportResults.Location = new System.Drawing.Point(20, 530);
+            this.btnExportResults.Name = "btnExportResults";
+            this.btnExportResults.Size = new System.Drawing.Size(140, 30);
+            this.btnExportResults.TabIndex = 27;
+            this.btnExportResults.Text = "📤 Export Results";
+            this.btnExportResults.UseVisualStyleBackColor = true;
+            this.btnExportResults.Click += new System.EventHandler(this.ExportResults_Click);
+            this.resultsPanel.Controls.Add(this.btnExportResults);
+            this.btnExportResults.BringToFront();
             // 
             // algorithmButtonPanel
             // 
@@ -415,7 +430,7 @@
             // 2. Set the button Size to (140, 50) and Margin to (10, 5, 10, 5)
             // 3. Add it to this FlowLayoutPanel using: this.algorithmButtonPanel.Controls.Add(yourNewButton);
             // 4. The FlowLayoutPanel will automatically position it and handle wrapping
-            this.algorithmButtonPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.algorithmButtonPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.algorithmButtonPanel.Controls.Add(this.btnFCFS);
             this.algorithmButtonPanel.Controls.Add(this.btnSJF);
@@ -541,8 +556,8 @@
             // 
             // aboutTextBox
             // 
-            this.aboutTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.aboutTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.aboutTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.aboutTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -588,7 +603,7 @@
         }
 
         #endregion
-
+        
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnWelcome;
         private System.Windows.Forms.Button btnCpuScheduler;
@@ -611,6 +626,7 @@
         private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.Button btnRoundRobin;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button btnExportResults;
         private System.Windows.Forms.Panel aboutPanel;
         private System.Windows.Forms.RichTextBox aboutTextBox;
         private System.Windows.Forms.DataGridView processDataGrid;

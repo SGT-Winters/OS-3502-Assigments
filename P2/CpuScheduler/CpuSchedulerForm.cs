@@ -507,11 +507,11 @@ Instructions:
                 item.SubItems.Add(result.TurnaroundTime.ToString());
                 listView1.Items.Add(item);
             }
-            
+
             // Add summary statistics
             var avgWaiting = results.Average(r => r.WaitingTime);
             var avgTurnaround = results.Average(r => r.TurnaroundTime);
-            
+
             var summaryItem = new ListViewItem("SUMMARY");
             summaryItem.SubItems.Add(algorithmName);
             summaryItem.SubItems.Add($"{results.Count} processes");
@@ -529,13 +529,69 @@ Instructions:
             // 4. Throughput (processes/second) - number of processes / total time
             // 5. Response Time (RT) [Optional] - time from arrival to first execution
             // Display these metrics in the results view for comparison between algorithms
-            
+
             // TODO: STUDENTS - Add CSV export functionality for results data
             // Create a "Export Results" button in the results panel to save:
             // - Individual process results (what's shown in listView1)
             // - Performance metrics summary for each algorithm tested
             // Reference the SaveData_Click() method above to learn CSV file handling
             // This will help you create tables/charts for your project report
+
+            CalculateMetrics(results);
+        }
+        
+        private void CalculateMetrics(List<SchedulingResult> processes)
+        {
+            if (processes == null || processes.Count == 0)
+            {
+                MessageBox.Show("No process data available to calculate metrics.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            double avgWaitingTime = processes.Average(p => p.WaitingTime);
+            double avgTurnaroundTime = processes.Average(p => p.TurnaroundTime);
+            double totalBurstTime = processes.Sum(p => p.BurstTime);
+            double totalTime = processes.Max(p => p.FinishTime) - processes.Min(p => p.ArrivalTime);
+
+            if (totalTime <= 0)
+            {
+                totalTime = totalBurstTime;
+            }
+
+            double cpuUtilization = (totalBurstTime / totalTime) * 100;
+            double throughput = processes.Count / totalTime;
+            double avgResponseTime = processes.Average(p => p.StartTime - p.ArrivalTime);
+
+            listView1.Items.Add(new ListViewItem(""));
+            var summaryHeader = new ListViewItem("PERFORMANCE METRICS");
+            summaryHeader.SubItems.Add("");
+            listView1.Items.Add(summaryHeader);
+
+            listView1.Items.Add(new ListViewItem(new[]
+            {
+                "Avg Waiting Time:", "", $"{avgWaitingTime:F2}"
+            }));
+
+            listView1.Items.Add(new ListViewItem(new[]
+            {
+                "Avg Turnaround Time:", "", $"{avgTurnaroundTime:F2}"
+            }));
+
+            listView1.Items.Add(new ListViewItem(new[]
+            {
+                "Avg Response Time:", "", $"{avgResponseTime:F2}"
+            }));
+
+            listView1.Items.Add(new ListViewItem(new[]
+            {
+                "Throughput (processes/unit time):", "", $"{throughput:F2}"
+            }));
+
+            listView1.Items.Add(new ListViewItem(new[]
+            {
+                "CPU Utilization (%):", "", $"{cpuUtilization:F2}%"
+            }));
+                
         }
 
         /// <summary>
@@ -762,7 +818,7 @@ Instructions:
                             var headerLine = reader.ReadLine();
                             if (headerLine == null)
                             {
-                                MessageBox.Show("The CSV file is empty.", "Load Error", 
+                                MessageBox.Show("The CSV file is empty.", "Load Error",
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return;
                             }
@@ -773,10 +829,10 @@ Instructions:
                             {
                                 lineNumber++;
                                 var parts = line.Split(',');
-                                
+
                                 if (parts.Length != 4)
                                 {
-                                    MessageBox.Show($"Invalid format on line {lineNumber}. Expected format: ProcessID,BurstTime,Priority,ArrivalTime", 
+                                    MessageBox.Show($"Invalid format on line {lineNumber}. Expected format: ProcessID,BurstTime,Priority,ArrivalTime",
                                         "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     return;
                                 }
@@ -793,7 +849,7 @@ Instructions:
                                 }
                                 catch (FormatException)
                                 {
-                                    MessageBox.Show($"Invalid number format on line {lineNumber}.", 
+                                    MessageBox.Show($"Invalid number format on line {lineNumber}.",
                                         "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     return;
                                 }
@@ -802,14 +858,14 @@ Instructions:
 
                         if (loadedData.Count == 0)
                         {
-                            MessageBox.Show("No process data found in the CSV file.", "Load Error", 
+                            MessageBox.Show("No process data found in the CSV file.", "Load Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
 
                         if (loadedData.Count > MAX_PROCESS_COUNT)
                         {
-                            MessageBox.Show($"CSV contains {loadedData.Count} processes, but maximum allowed is {MAX_PROCESS_COUNT}. Loading first {MAX_PROCESS_COUNT} processes.", 
+                            MessageBox.Show($"CSV contains {loadedData.Count} processes, but maximum allowed is {MAX_PROCESS_COUNT}. Loading first {MAX_PROCESS_COUNT} processes.",
                                 "Process Count Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             loadedData = loadedData.Take(MAX_PROCESS_COUNT).ToList();
                         }
@@ -830,13 +886,67 @@ Instructions:
                         txtProcess.Text = loadedData.Count.ToString();
                         cmbLoadExample.SelectedIndex = 0;
 
-                        MessageBox.Show($"Successfully loaded {loadedData.Count} processes from:\n{openDialog.FileName}", 
+                        MessageBox.Show($"Successfully loaded {loadedData.Count} processes from:\n{openDialog.FileName}",
                             "Load Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error loading file: {ex.Message}", 
+                        MessageBox.Show($"Error loading file: {ex.Message}",
                             "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+        
+        private void ExportResults_Click(object sender, EventArgs e)
+        {
+            if (listView1.Items.Count == 0)
+            {
+                MessageBox.Show("No results available to export.", "Export Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+                saveDialog.DefaultExt = "csv";
+                saveDialog.FileName = "SchedulingResults.csv";
+                saveDialog.Title = "Export Scheduling Results";
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (var writer = new System.IO.StreamWriter(saveDialog.FileName))
+                        {
+                            // Write header row
+                            var headers = listView1.Columns
+                                .Cast<ColumnHeader>()
+                                .Select(col => col.Text.Replace(",", " "))
+                                .ToArray();
+                            writer.WriteLine(string.Join(",", headers));
+
+                            // Write each ListView row
+                            foreach (ListViewItem item in listView1.Items)
+                            {
+                                var cells = new List<string>();
+                                foreach (ListViewItem.ListViewSubItem subItem in item.SubItems)
+                                {
+                                    string cell = subItem.Text.Replace(",", " "); // escape commas
+                                    cells.Add(cell);
+                                }
+                                writer.WriteLine(string.Join(",", cells));
+                            }
+                        }
+
+                        MessageBox.Show($"Results successfully exported to:\n{saveDialog.FileName}",
+                            "Export Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error exporting results: {ex.Message}",
+                            "Export Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -858,7 +968,7 @@ Instructions:
 
                 // Update Results tab with detailed scheduling results
                 DisplaySchedulingResults(results, "FCFS - First Come First Serve");
-                
+
                 // Switch to Results panel and update sidebar
                 ShowPanel(resultsPanel);
                 sidePanel.Height = btnDashBoard.Height;
@@ -866,7 +976,7 @@ Instructions:
             }
             else
             {
-                MessageBox.Show("Please set process count and ensure the data grid has process data.", 
+                MessageBox.Show("Please set process count and ensure the data grid has process data.",
                     "No Process Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtProcess.Focus();
             }
