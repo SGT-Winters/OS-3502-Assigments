@@ -79,26 +79,27 @@ to get a lock. If it cannot get a lock then the thread times out, releases any l
 
 ### Helpful Videos
 #### Phase 1
-Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
-Race Conditions: https://www.youtube.com/watch?v=K1aoimUYTK8<br>
+* Pthreads in C: https://www.youtube.com/watch?v=ldJ8WGZVXZk<br>
+* Race Conditions: https://www.youtube.com/watch?v=K1aoimUYTK8<br>
 #### Phase 2
-Mutex: https://www.youtube.com/watch?v=raLCgPK-Igc<br>
+* Mutex: https://www.youtube.com/watch?v=raLCgPK-Igc<br>
 #### Phase 3 and 4
-Deadlocks:<br>Video: https://www.youtube.com/watch?v=LjWug2tvSBU<br>
-Deadlock Reading: https://undo.io/resources/detecting-deadlocks-c-cplusplus/<br>
+* Deadlocks:<br>Video: https://www.youtube.com/watch?v=LjWug2tvSBU<br>
+* Deadlock Reading: https://undo.io/resources/detecting-deadlocks-c-cplusplus/<br>
 
 #### LaTeX Tutorial
-https://www.youtube.com/watch?v=y8y_KIs9JLs <br>
+* https://www.youtube.com/watch?v=y8y_KIs9JLs <br>
 
 ## Project 2
 
 ### Creating Performance Mertrics 
 
-#### Helpful Links:
-
 ### Creating Export Results Feature 
 
 #### Helpful Links:
+
+* Export DataGridView Data to a CSV file in C#: https://www.youtube.com/watch?v=H8zEgfrXJ60&t=8s<br>
+* C# Tutorial - How to Export DataGridView to CSV File: https://www.youtube.com/watch?v=UAFXi9sXzyM&t=410s<br>
 
 ### Implementing Shortest Remaining Time First (SRTF)
 
