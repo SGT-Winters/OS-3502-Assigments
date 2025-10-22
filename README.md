@@ -4,6 +4,7 @@
 
 - [Assignment 2](#assignment-2)<br>
 - [Project 1](#project-1)<br>
+- [Project 2](#project-2)<br>
 
 ## Assignment 2
 
