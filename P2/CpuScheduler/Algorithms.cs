@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using static CpuScheduler.CpuSchedulerForm;
 
 namespace CpuScheduler
 {
