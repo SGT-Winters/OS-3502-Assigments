@@ -482,13 +482,11 @@ namespace CpuScheduler
                 int shortest = -1;
                 bool found;
 
-                // Simulation loop
                 while (completed < processCount)
                 {
                     found = false;
                     double minRemaining = double.MaxValue;
 
-                    // Find the process with shortest remaining time that has arrived
                     for (int i = 0; i < processCount; i++)
                     {
                         if (arrivalTimes[i] <= currentTime && remainingTimes[i] > 0 && remainingTimes[i] < minRemaining)
@@ -505,11 +503,9 @@ namespace CpuScheduler
                         continue;
                     }
 
-                    // Execute one time unit
                     remainingTimes[shortest]--;
                     currentTime++;
 
-                    // If finished
                     if (remainingTimes[shortest] == 0)
                     {
                         completed++;
@@ -519,7 +515,6 @@ namespace CpuScheduler
                     }
                 }
 
-                // Display individual waiting times
                 double totalWT = 0, totalTAT = 0;
                 for (int i = 0; i < processCount; i++)
                 {
@@ -533,7 +528,6 @@ namespace CpuScheduler
                         MessageBoxIcon.Information);
                 }
 
-                // Display averages
                 double avgWT = totalWT / processCount;
                 double avgTAT = totalTAT / processCount;
 
