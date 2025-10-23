@@ -60,6 +60,7 @@
             this.btnPriority = new System.Windows.Forms.Button();
             this.btnSJF = new System.Windows.Forms.Button();
             this.btnFCFS = new System.Windows.Forms.Button();
+            this.btnSRTF = new System.Windows.Forms.Button();
             this.txtProcess = new System.Windows.Forms.TextBox();
             this.labelProcess = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -442,6 +443,17 @@
             this.algorithmButtonPanel.Size = new System.Drawing.Size(690, 120);
             this.algorithmButtonPanel.TabIndex = 25;
             this.algorithmButtonPanel.WrapContents = true;
+            //
+            // btnSRTF
+            this.btnSRTF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSRTF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSRTF.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSRTF.Text = "SRTF";
+            this.btnSRTF.Size = new System.Drawing.Size(140, 50);
+            this.btnSRTF.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.btnSRTF.Click += new System.EventHandler(this.ShortestRemainingTimeFirst_Click);
+            this.algorithmButtonPanel.Controls.Add(this.btnSRTF);
+            //
             // 
             // btnRoundRobin
             // 
@@ -603,7 +615,6 @@
         }
 
         #endregion
-        
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnWelcome;
         private System.Windows.Forms.Button btnCpuScheduler;
@@ -621,6 +632,8 @@
         private System.Windows.Forms.Button btnPriority;
         private System.Windows.Forms.Button btnSJF;
         private System.Windows.Forms.Button btnFCFS;
+        private System.Windows.Forms.Button btnSRTF;
+
         public System.Windows.Forms.TextBox txtProcess;
         private System.Windows.Forms.Label labelProcess;
         private System.Windows.Forms.Panel sidePanel;

@@ -424,6 +424,127 @@ namespace CpuScheduler
 
         // TODO: Add new scheduling algorithms below. Use the above methods as
         // examples when expanding functionality.
+        /// <summary>
+
+        /// <param name="processCountInput">The number of processes to schedule.</param>
+        public static void RunShortestRemainingTimeFirst(string processCountInput)
+        {
+            if (!int.TryParse(processCountInput, out int processCount) || processCount <= 0)
+            {
+                MessageBox.Show("Invalid number of processes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(
+                "Shortest Remaining Time First (Preemptive SJF) Scheduling",
+                string.Empty,
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                double[] arrivalTimes = new double[processCount];
+                double[] burstTimes = new double[processCount];
+                double[] remainingTimes = new double[processCount];
+                double[] completionTimes = new double[processCount];
+                double[] turnaroundTimes = new double[processCount];
+                double[] waitingTimes = new double[processCount];
+
+                for (int i = 0; i < processCount; i++)
+                {
+                    string arrivalInput = Microsoft.VisualBasic.Interaction.InputBox(
+                        "Enter arrival time:",
+                        "Arrival time for P" + (i + 1),
+                        "",
+                        -1, -1);
+                    if (!double.TryParse(arrivalInput, out arrivalTimes[i]) || arrivalTimes[i] < 0)
+                    {
+                        MessageBox.Show("Invalid arrival time", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string burstInput = Microsoft.VisualBasic.Interaction.InputBox(
+                        "Enter burst time:",
+                        "Burst time for P" + (i + 1),
+                        "",
+                        -1, -1);
+                    if (!double.TryParse(burstInput, out burstTimes[i]) || burstTimes[i] <= 0)
+                    {
+                        MessageBox.Show("Invalid burst time", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    remainingTimes[i] = burstTimes[i];
+                }
+
+                int completed = 0;
+                double currentTime = 0;
+                int shortest = -1;
+                bool found;
+
+                // Simulation loop
+                while (completed < processCount)
+                {
+                    found = false;
+                    double minRemaining = double.MaxValue;
+
+                    // Find the process with shortest remaining time that has arrived
+                    for (int i = 0; i < processCount; i++)
+                    {
+                        if (arrivalTimes[i] <= currentTime && remainingTimes[i] > 0 && remainingTimes[i] < minRemaining)
+                        {
+                            minRemaining = remainingTimes[i];
+                            shortest = i;
+                            found = true;
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        currentTime++;
+                        continue;
+                    }
+
+                    // Execute one time unit
+                    remainingTimes[shortest]--;
+                    currentTime++;
+
+                    // If finished
+                    if (remainingTimes[shortest] == 0)
+                    {
+                        completed++;
+                        completionTimes[shortest] = currentTime;
+                        turnaroundTimes[shortest] = completionTimes[shortest] - arrivalTimes[shortest];
+                        waitingTimes[shortest] = turnaroundTimes[shortest] - burstTimes[shortest];
+                    }
+                }
+
+                // Display individual waiting times
+                double totalWT = 0, totalTAT = 0;
+                for (int i = 0; i < processCount; i++)
+                {
+                    totalWT += waitingTimes[i];
+                    totalTAT += turnaroundTimes[i];
+
+                    MessageBox.Show(
+                        $"Process P{i + 1}\nArrival: {arrivalTimes[i]}, Burst: {burstTimes[i]}\nWaiting: {waitingTimes[i]}, Turnaround: {turnaroundTimes[i]}",
+                        $"Process P{i + 1}",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+
+                // Display averages
+                double avgWT = totalWT / processCount;
+                double avgTAT = totalTAT / processCount;
+
+                MessageBox.Show(
+                    $"Average Waiting Time: {avgWT:F2} sec(s)\nAverage Turnaround Time: {avgTAT:F2} sec(s)",
+                    "SRTF Results",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
+
     }
 }
 
