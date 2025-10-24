@@ -92,8 +92,6 @@ to get a lock. If it cannot get a lock then the thread times out, releases any l
 
 ## Project 2
 
-### Creating Performance Mertrics 
-
 ### Creating Export Results Feature 
 
 #### Helpful Links:
@@ -104,7 +102,5 @@ to get a lock. If it cannot get a lock then the thread times out, releases any l
 ### Implementing Shortest Remaining Time First (SRTF)
 
 #### Helpful Links:
-
-### Implementing Fair Share
-
-#### Helpful Links:
+Explaing and Visualizing SRTF: https://www.youtube.com/watch?v=77_311RNAbg<br>
+C approach to SRTF: https://www.youtube.com/watch?v=S6rwMgUuDdc&t=519s&pp=ygUrc2hvcnRlc3QgcmVtYWluaW5nIHRpbWUgZmlyc3Qgc2NoZWR1bGluZyBjIw%3D%3D<br>
