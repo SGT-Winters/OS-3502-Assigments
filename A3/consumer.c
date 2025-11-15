@@ -1,6 +1,7 @@
 // ============================================
 // consumer.c - Consumer process starter
 // ============================================
+// testing something
 #include "buffer.h"
 
 // Global variables for cleanup
