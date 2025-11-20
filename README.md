@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Assignment 2](#assignment-2)<br>
+- [Assignment 3](#assignment-3)<br>
 - [Project 1](#project-1)<br>
 - [Project 2](#project-2)<br>
 
@@ -19,6 +20,8 @@ Time Your Code: https://www.youtube.com/watch?v=1KQqpiXxvWQ
 Handling Signals: https://www.youtube.com/watch?v=jF-1eFhyz1U <br><br>
 Communicating Between Processes Using Signals: https://www.youtube.com/watch?v=PErrlOx3LYE&t=268s <br><br>
 Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
+
+## Assignment 3
 
 ## Project 1
 
