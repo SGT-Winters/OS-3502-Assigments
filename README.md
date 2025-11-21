@@ -25,7 +25,9 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 ### Helpful Links
 
-* Shared Memory (shmget, shmat): https://www.youtube.com/watch?v=WgVSq-sgHOc<br>
+* Shared Memory (shmget, shmat) by Jacob Sorber: https://www.youtube.com/watch?v=WgVSq-sgHOc<br>
+* How Semaphore Work by Jacob Sorber: youtube.com/watch?v=ukM_zzrIeXs&pp=ygUec2VtYXBob3JlIHN5bmNocm9uaXphdGlvbiBpbiBj<br>
+* Intro to Semaphores in V C by CodeVault: https://www.youtube.com/watch?v=YSn8_XdGH7c<br>
 
 ## Project 1
 
