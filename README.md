@@ -51,7 +51,7 @@ gcc -o consumer consumer.c -pthread -lrt<br>
 ### Helpful Links
 
 * Shared Memory (shmget, shmat) by Jacob Sorber: https://www.youtube.com/watch?v=WgVSq-sgHOc<br>
-* How Semaphore Work by Jacob Sorber: youtube.com/watch?v=ukM_zzrIeXs&pp=ygUec2VtYXBob3JlIHN5bmNocm9uaXphdGlvbiBpbiBj<br>
+* How Semaphore Work by Jacob Sorber: https://www.youtube.com/watch?v=ukM_zzrIeXs&pp=ygUec2VtYXBob3JlIHN5bmNocm9uaXphdGlvbiBpbiBj<br>
 * Intro to Semaphores in C by CodeVault: https://www.youtube.com/watch?v=YSn8_XdGH7c<br><br>
 * Quick Overview of Semaphores: https://www.geeksforgeeks.org/operating-systems/semaphores-in-process-synchronization/<br>
 
