@@ -3,9 +3,17 @@
 ## Table of Contents
 
 - [Assignment 2](#assignment-2)<br>
+  -[Helpful Videos](#helpful-videos)<br>
 - [Assignment 3](#assignment-3)<br>
   -[Compile Code](#compile-code)<br>
+  -[Test Cases](#test-cases)<br>
+  -[Helpful Videos](#helpful-videos)<br>
 - [Project 1](#project-1)<br>
+  -[Phase 1](#phase-1)<br>
+  -[Phase 2](#phase-2)<br>
+  -[Phase 3](#phase-3)<br>
+  -[Phase 4](#phase-4)<br>
+  -[Helpful Videos](#helpful-videos)
 - [Project 2](#project-2)<br>
 
 ## Assignment 2
@@ -49,7 +57,7 @@ gcc -o consumer consumer.c -pthread -lrt<br>
 
 ![Test 3 Image](A3/images/Test%203.png)
 
-### Helpful Links
+### Helpful Videos
 
 * Shared Memory (shmget, shmat) by Jacob Sorber: https://www.youtube.com/watch?v=WgVSq-sgHOc<br>
 * How Semaphore Work by Jacob Sorber: https://www.youtube.com/watch?v=ukM_zzrIeXs&pp=ygUec2VtYXBob3JlIHN5bmNocm9uaXphdGlvbiBpbiBj<br>
