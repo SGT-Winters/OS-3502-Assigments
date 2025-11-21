@@ -25,7 +25,7 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 **NOTE:** Clean up shared memory before running new test cases to ensure prints are not out-of-order<br><br>
 
-ipcrm -M 0x1234
+ipcrm -M 0x1234<br>
 rm /dev/shm/sem_*<br>
 
 ### Compile Code
