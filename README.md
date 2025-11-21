@@ -23,7 +23,10 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 ## Assignment 3
 
-**NOTE:** Clean up shared memory before running new test cases to ensure prints are not out-of-order<br>
+**NOTE:** Clean up shared memory before running new test cases to ensure prints are not out-of-order<br><br>
+
+ipcrm -M 0x1234
+rm /dev/shm/sem_*<br>
 
 ### Compile Code
 gcc -o producer producer.c -pthread -lrt<br>
