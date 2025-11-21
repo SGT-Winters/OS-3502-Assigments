@@ -23,6 +23,17 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 ## Assignment 3
 
+**NOTE:** Clean up shared memory before running new test cases to ensure prints are not out-of-order<br>
+
+## Compile Code
+gcc -o producer producer.c -pthread -lrt<br>
+gcc -o consumer consumer.c -pthread -lrt<br>
+
+## Test Case 1
+./producer 1 5 & ./consumer 1 5 & wait<br>
+
+![Test 1 Image](A3/images/Test%201.png)
+
 ### Helpful Links
 
 * Shared Memory (shmget, shmat) by Jacob Sorber: https://www.youtube.com/watch?v=WgVSq-sgHOc<br>
