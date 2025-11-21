@@ -23,6 +23,10 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 ## Assignment 3
 
+### Helpful Links
+
+* Shared Memory (shmget, shmat): https://www.youtube.com/watch?v=WgVSq-sgHOc<br>
+
 ## Project 1
 
 ### Phase 1
