@@ -4,6 +4,7 @@
 
 - [Assignment 2](#assignment-2)<br>
 - [Assignment 3](#assignment-3)<br>
+  -[Compile Code](#compile-code)<br>
 - [Project 1](#project-1)<br>
 - [Project 2](#project-2)<br>
 
