@@ -25,14 +25,25 @@ Sending and Handling Signals in C: https://www.youtube.com/watch?v=83M5-NPDeWs
 
 **NOTE:** Clean up shared memory before running new test cases to ensure prints are not out-of-order<br>
 
-## Compile Code
+### Compile Code
 gcc -o producer producer.c -pthread -lrt<br>
 gcc -o consumer consumer.c -pthread -lrt<br>
 
-## Test Case 1
+## Test Cases
+#### Test Case 1
 ./producer 1 5 & ./consumer 1 5 & wait<br>
 
 ![Test 1 Image](A3/images/Test%201.png)
+
+#### Test Case 2
+./producer 1 5 & ./producer 1 5 & ./consumer 1 10 & wait<br>
+
+![Test 2 Image](A3/images/Test%202.png)
+
+#### Test Case 3
+./producer 1 10 & ./consumer 1 5 & ./consumer 2 5 & wait<br>
+
+![Test 3 Image](A3/images/Test%203.png)
 
 ### Helpful Links
 
